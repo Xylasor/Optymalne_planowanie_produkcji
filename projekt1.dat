@@ -1,0 +1,61 @@
+# OPTYMALIZACJA WE WSPOMAGANIU DECYZJI
+# PROJEKT - ZADANIE OPTYMALNEGO PLANOWANIA PRODUKCJI
+# PLIK Z DANYMI
+# AUTOR: MATEUSZ HRYCIOW 283365
+
+### DEFINICJE ZBIOROW ###
+
+# Wszystkie produkty
+set PRODUKTY 	:= P1 P2 P3 P4 P5 P6 P7 ;
+
+# Czynnosci produkcyjne wykonywane przez przedsiebiorstwo
+set CZYNNOSCI 	:= szlifowanie w_pionowe w_poziome frezowanie toczenie ;
+
+# Miesiace produkcji, przyjeto 1 - styczen, 2 - luty, 3 - marzec
+set MIESIACE	:= 1 2 3;
+
+
+### PARAMETRY ###
+
+# Czasy potrzebne do wykonania danych produktow [godz/szt.]
+
+param czasy: 	P1		P2		P3		P4		P5	 	P6	 	P7 :=
+szlifowanie 	0.5		0.7		0 		0		0.3	 	0.2 	0.5
+w_pionowe		0.1		0.2		0 		0.3		0	 	0.6		0
+w_poziome		0.2		0   	0.8 	0		0 	 	0		0.6
+frezowanie		0.05	0.03 	0		0.07 	0.1 	0 		0.08
+toczenie		0 		0		0.01	0		0.05	0		0.05
+;
+
+
+# Ograniczenia rynkowe na liczbe sprzedawanych produktow [szt.]
+param ogr_rynkowe:  	P1	 	P2	 	P3	 	P4	 	P5	 	P6	 	P7 :=
+	1				500		1000	300		300		800		200		100
+	2				600		500		200		0		400		300		150
+	3				300		600		0		0		500		400		100
+	;
+
+
+# Liczba dostepnych maszyn [szt.]
+param: 			maszyny :=
+szlifowanie		4
+w_pionowe		2
+w_poziome		3
+frezowanie		1
+toczenie		1
+;
+	
+# marze kazdego produktu [zl/szt.]
+param: 	marze :=
+P1		10
+P2		6
+P3		8
+P4		4
+P5		11
+P6		9
+P7		3
+;	
+
+
+
+
